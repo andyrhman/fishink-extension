@@ -1,0 +1,20 @@
+{
+  "name": "fishink",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node cli-test.mjs",
+    "start": "node cli-test.mjs"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "Andy",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0"
+  },
+  "devDependencies": {
+    "@tensorflow/tfjs-node": "^4.22.0"
+  }
+}
