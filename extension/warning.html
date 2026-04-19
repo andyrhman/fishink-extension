@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fishink Warning</title>
+    <link rel="stylesheet" href="warning.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card">
+        <div class="danger-badge">Peringatan Keamanan</div>
+
+        <h1>Website ini terindikasi phishing</h1>
+        <p class="lead">
+          Fishink mendeteksi bahwa URL ini memiliki risiko tinggi untuk menipu
+          atau membahayakan pengguna.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <span class="label">URL Tujuan</span>
+            <p id="target-url" class="mono"></p>
+          </div>
+          <div class="info-box">
+            <span class="label">Skor Risiko</span>
+            <p id="score-text" class="score"></p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="back-safe" class="btn secondary">Kembali aman</button>
+          <button id="proceed-unsafe" class="btn primary">
+            Lanjutkan ke situs tidak aman
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="warning.js"></script>
+  </body>
+</html>

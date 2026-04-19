@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Fishink",
+  "version": "1.0.0",
+  "description": "Offline phishing detection for browser navigation.",
+  "permissions": ["tabs", "webNavigation", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Fishink"
+  }
+}
