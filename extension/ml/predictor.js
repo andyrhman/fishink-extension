@@ -33,12 +33,9 @@ export async function predictPhishing(rawUrl) {
     const seqTensor = tf.tensor2d([paddedSeq], [1, 250], "float32");
     const structTensor = tf.tensor2d([scaledFeatures], [1, 32], "float32");
 
-    const pred = model.predict({
-        seq_input: seqTensor,
-        structural_input: structTensor,
-    });
-
-    const proba = (await pred.data())[0];
+    const pred = model.predict([seqTensor, structTensor]);
+    const mainPred = Array.isArray(pred) ? pred[0] : pred;
+    const proba = (await mainPred.data())[0];
 
     seqTensor.dispose();
     structTensor.dispose();

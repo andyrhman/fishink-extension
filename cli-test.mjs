@@ -1,3 +1,26 @@
+import fs from "fs/promises";
+import path from "path";
+import readline from "readline/promises";
+import { fileURLToPath, pathToFileURL } from "url";
+import * as tf from "@tensorflow/tfjs-node";
+
+import {
+    sanitizeUrl,
+    textToCharSequence,
+    padSequence,
+    scaleFeatures,
+    extractStructuralFeatures,
+} from "./src/ml/helper.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const MODEL_DIR = path.join(__dirname, "src", "model");
+const DATA_DIR = path.join(__dirname, "src", "data");
+
+const MODEL_JSON = path.join(MODEL_DIR, "model.json");
+const TOKENIZER_JSON = path.join(DATA_DIR, "tokenizer.json");
+const SCALER_JSON = path.join(DATA_DIR, "scaler.json");
 const TRUSTED_JSON = path.join(DATA_DIR, "trusted_website_high_confidence.json");
 
 const THRESHOLD = 0.05685228854417801;
