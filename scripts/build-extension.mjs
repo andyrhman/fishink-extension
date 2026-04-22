@@ -21,6 +21,10 @@ async function copyDir(srcDir, destDir) {
     }
 }
 
+async function copyFile(name) {
+    await fs.copyFile(path.join(SRC, name), path.join(DIST, name));
+}
+
 await fs.rm(DIST, { recursive: true, force: true });
 await fs.mkdir(DIST, { recursive: true });
 
@@ -29,6 +33,7 @@ await esbuild.build({
         path.join(SRC, "background.js"),
         path.join(SRC, "loader.js"),
         path.join(SRC, "warning.js"),
+        path.join(SRC, "popup.js"),
     ],
     bundle: true,
     format: "esm",
@@ -36,6 +41,7 @@ await esbuild.build({
     target: ["chrome114"],
     outdir: DIST,
     sourcemap: true,
+    logLevel: "info",
 });
 
 await copyDir(path.join(SRC, "model"), path.join(DIST, "model"));
@@ -47,8 +53,10 @@ for (const file of [
     "loader.css",
     "warning.html",
     "warning.css",
+    "popup.html",
+    "popup.css",
 ]) {
-    await fs.copyFile(path.join(SRC, file), path.join(DIST, file));
+    await copyFile(file);
 }
 
 console.log(`Extension built at ${DIST}`);

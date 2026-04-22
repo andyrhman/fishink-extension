@@ -3,13 +3,14 @@
   "name": "Fishink",
   "version": "1.0.0",
   "description": "Offline phishing detection for browser navigation.",
-  "permissions": ["tabs", "webNavigation", "storage"],
+  "permissions": ["storage", "tabs", "webNavigation"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "action": {
+    "default_popup": "popup.html",
     "default_title": "Fishink"
   }
 }

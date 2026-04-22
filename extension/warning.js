@@ -4,8 +4,8 @@ const score = params.get("score") || "";
 
 const targetUrlEl = document.getElementById("target-url");
 const scoreTextEl = document.getElementById("score-text");
+const whitelistBtn = document.getElementById("whitelist-btn");
 const proceedBtn = document.getElementById("proceed-unsafe");
-const backBtn = document.getElementById("back-safe");
 
 targetUrlEl.textContent = target || "-";
 scoreTextEl.textContent = score ? `${score}%` : "-";
@@ -24,6 +24,17 @@ function sendMessage(message) {
     });
 }
 
+whitelistBtn.addEventListener("click", async () => {
+    const tabId = await getActiveTabId();
+    if (!tabId || !target) return;
+
+    await sendMessage({
+        type: "ADD_TO_WHITELIST_AND_RELOAD",
+        tabId,
+        target,
+    });
+});
+
 proceedBtn.addEventListener("click", async () => {
     const tabId = await getActiveTabId();
     if (!tabId || !target) return;
@@ -33,8 +44,4 @@ proceedBtn.addEventListener("click", async () => {
         tabId,
         target,
     });
-});
-
-backBtn.addEventListener("click", () => {
-    history.back();
 });
