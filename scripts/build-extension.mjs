@@ -46,6 +46,7 @@ await esbuild.build({
 
 await copyDir(path.join(SRC, "model"), path.join(DIST, "model"));
 await copyDir(path.join(SRC, "data"), path.join(DIST, "data"));
+await copyDir(path.join(SRC, "assets"), path.join(DIST, "assets"));
 
 for (const file of [
     "manifest.json",

@@ -11,6 +11,18 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Fishink"
+    "default_title": "Fishink",
+    "default_icon": {
+      "16": "assets/fishing_16.png",
+      "32": "assets/fishing_32.png",
+      "48": "assets/fishing_48.png",
+      "128": "assets/fishing_128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/fishing_16.png",
+    "32": "assets/fishing_32.png",
+    "48": "assets/fishing_48.png",
+    "128": "assets/fishing_128.png"
   }
 }
