@@ -10,16 +10,12 @@
   Ekstensi Chrome untuk mendeteksi URL phishing secara offline menggunakan model machine learning berbasis TensorFlow.js.
 </p>
 
----
-
 ## Tentang Fishink
 
 Fishink adalah ekstensi browser yang dirancang untuk membantu mendeteksi URL phishing secara lokal langsung di browser tanpa backend.  
 Ekstensi ini menggunakan model machine learning untuk menganalisis URL, lalu menampilkan loader saat proses pemeriksaan dan warning page jika situs terindikasi berbahaya.
 
 Project ini masih dalam tahap **beta**, sehingga masih mungkin ada false positive, bug kecil, atau penyesuaian UI/UX di versi berikutnya.
-
----
 
 ## Tampilan Ekstensi
 
@@ -40,8 +36,6 @@ Jika URL terdeteksi berbahaya, Fishink akan menampilkan halaman peringatan denga
 - menambahkan URL ke whitelist
 - melanjutkan ke situs tidak aman
 
----
-
 ## Fitur
 
 - Deteksi phishing URL secara offline
@@ -52,8 +46,6 @@ Jika URL terdeteksi berbahaya, Fishink akan menampilkan halaman peringatan denga
 - Toggle proteksi aktif/nonaktif dari popup
 - Tampilan modern dengan background gelap
 - Terintegrasi dengan TensorFlow.js di browser
-
----
 
 ## Cara Kerja
 
@@ -66,8 +58,6 @@ Jika URL terdeteksi berbahaya, Fishink akan menampilkan halaman peringatan denga
    - kembali aman
    - melanjutkan situs
    - menambahkan URL ke whitelist
-
----
 
 ## Instalasi
 
