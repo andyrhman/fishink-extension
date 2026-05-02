@@ -23,7 +23,7 @@ const TOKENIZER_JSON = path.join(DATA_DIR, "tokenizer.json");
 const SCALER_JSON = path.join(DATA_DIR, "scaler.json");
 const TRUSTED_JSON = path.join(DATA_DIR, "trusted_website_high_confidence.json");
 
-const THRESHOLD = 0.05685228854417801;
+const THRESHOLD = 0.031851060688495636;
 
 async function loadArtifacts() {
     const [tokenizerRaw, scalerRaw, trustedRaw] = await Promise.all([
@@ -38,7 +38,9 @@ async function loadArtifacts() {
         JSON.parse(trustedRaw).map((d) => String(d).trim().toLowerCase().replace(/^www\./, ""))
     );
 
-    const model = await tf.loadLayersModel(pathToFileURL(MODEL_JSON).href);
+    const model = await tf.loadLayersModel(pathToFileURL(MODEL_JSON).href, {
+        strict: true,
+    });
 
     return { model, tokenizer, scaler, trustedDomains };
 }
@@ -87,10 +89,6 @@ async function predictPhishing(rawUrl) {
 
     const seqTensor = tf.tensor2d([paddedSeq], [1, 250], "float32");
     const structTensor = tf.tensor2d([scaledFeatures], [1, 32], "float32");
-
-    // console.log("seqTensor shape:", seqTensor.shape);
-    // console.log("structTensor shape:", structTensor.shape);
-    // console.log("model inputs:", model.inputs.map((i) => i.name));
 
     const pred = model.predict([seqTensor, structTensor]);
     const mainPred = Array.isArray(pred) ? pred[0] : pred;
